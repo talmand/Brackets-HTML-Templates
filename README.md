@@ -4,7 +4,7 @@ Brackets extension that will insert a chosen HTML template into the current file
 
 Uses a modal window to display the options as sub-menus are yet to be implemented, which would be the preference. With sub-menus would still be located under the Edit menu since it's altering the current file.
 
-To install this extension, simply place the ```ta-htmlTemplates``` folder inside the ```brackets/src/extensions/user``` folder, and reload Brackets.
+To install this extension, create a folder named ```ta-htmlTemplates``` inside the ```brackets/src/extensions/user``` folder, place the files in this folder, and reload Brackets.
 
 **Compatible with Brackets Sprint11**
 

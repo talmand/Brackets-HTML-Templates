@@ -10,7 +10,7 @@ define(function (require, exports, module) {
         Menus          = brackets.getModule("command/Menus");
     
     // Register the commands and insert in the File menu
-    CommandManager.register("HTML Templates", "templates", action);
+    CommandManager.register("HTML Templates...", "templates", action);
     var menu = Menus.getMenu(Menus.AppMenuBar.EDIT_MENU);
     menu.addMenuDivider();
     menu.addMenuItem("templates");

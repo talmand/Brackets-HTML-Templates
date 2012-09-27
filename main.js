@@ -54,7 +54,6 @@ define(function (require, exports, module) {
         $(document).keyup(function (e) {
             if (e.keyCode === 27) {
                 $("#templates_modal, #templates_modalBackdrop").remove();
-                console.log("esc");
             }
         });
         

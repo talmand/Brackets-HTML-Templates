@@ -5,9 +5,11 @@
         <a href="#" class="close">&times</a>
         <h1>HTML Templates</h1>
     </div>
+    <p style="display: none; color: red; font-weight: bold; padding: 10px;" id="templates_error">There is no file open. PLease open a file before running HTML-Templates.</p>
     <div class="modal-body">
         <h2>Choose a doctype...</h2>
-        <p style="display: none; color: red; font-weight: bold" id="templates_error">File has content, this action will overwrite that content.</p>
+        <p style="display: none; color: red; font-weight: bold;" id="templates_warning">File has content, this action will overwrite that content.</p>
+         
         <p class="dialog-message">
             <a id="templates_HTML5" data-template="html5" href="#">HTML5</a><br />
             <a id="templates_HTML4loose" data-template="html4loose" href="#">HTML4 Transitional</a><br />

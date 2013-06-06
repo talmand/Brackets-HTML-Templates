@@ -33,7 +33,7 @@ define(function (require, exports, module) {
     
     // load up modal content, don't forget text! at beginning of file name
     var modal = require("text!html/modal.html");
-    
+   
     function action() {
         
         /*  
@@ -62,10 +62,17 @@ define(function (require, exports, module) {
             e.preventDefault();
             $("#templates_modal, #templates_modalBackdrop").remove();
         });
-        
-        // file has content, show warning
-        if (EditorManager.getCurrentFullEditor()._codeMirror.getValue().length > 0) {
+    
+        var editor = EditorManager.getCurrentFullEditor();
+        if (editor) {
+            if (editor._codeMirror.getValue().length > 0) {
+                // file has content, show warning
+                $("#templates_warning").show();
+            }
+        } else {
+            // no file is open, show error
             $("#templates_error").show();
+            $(".modal-body").hide();
         }
         
         // result of clicking a template choice

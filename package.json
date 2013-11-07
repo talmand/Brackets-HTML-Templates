@@ -1,0 +1,11 @@
+{
+    "name": "talmand.html-templates",
+    "title": "HTML Templates",
+    "description": "Inserts a pre-made HTML template based on a chosen doctype.",
+    "homepage": "https://github.com/talmand/Brackets-HTML-Templates",
+    "version": "1.0.0",
+    "author": "Travis Almand",
+    "engines": {
+        "brackets": ">=0.20.0"
+    }
+}

@@ -45,10 +45,20 @@ define(function (require, exports, module) {
         *   do that yet. Right now File -> New creates a new file in the file
         *   system instead of blank file waiting to be saved, which would
         *   be better for this extension.
+        *   Actually, creating new files is different now so I'll have to eventually
+        *   look into the extension offering an option of creating a new file.
         */
         
         // add our modal window to the body
         $("body").append(modal);
+        
+        // show new elements
+        $('#templates_modalBackdrop').css('opacity', 0.5);
+        $('#templates_modal').css({
+            'position': 'absolute',
+            'top': 'calc(50% - ' + ($('#templates_modal').height() / 2) + 'px)',
+            'left': 'calc(50% - ' + ($('#templates_modal').width() / 2) + 'px)'
+        });
         
         // pressing esc key closes modal and backdrop
         $(document).keyup(function (e) {

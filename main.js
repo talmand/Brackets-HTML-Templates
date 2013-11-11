@@ -98,6 +98,9 @@ define(function (require, exports, module) {
             case "html5":
                 template = require("text!html/html5.html");
                 break;
+            case "html5bp-4-3-0":
+                template = require("text!html/html5bp-4-3-0.html");
+                break;
             case "html4loose":
                 template = require("text!html/html4loose.html");
                 break;

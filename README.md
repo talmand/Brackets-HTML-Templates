@@ -15,5 +15,5 @@ Create a new file. Select "HTML Templates" under the Edit Menu. A modal will app
 
 
 Known issues
-=====
+============
 This will overwrite the contents of the current file if any exists.

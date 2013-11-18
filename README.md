@@ -2,11 +2,14 @@ Brackets HTML templates extension
 ===
 Brackets extension that will insert a chosen HTML template into the current file. Currently this will overwrite the current content of the file so it should be used on new, empty files. If there is a content a small warning is displayed.
 
-Uses a modal window to display the options as sub-menus are yet to be implemented, which would be the preference. With sub-menus would still be located under the Edit menu since it's altering the current file.
+Templates are based on generic HTML for specific doctypes or example HTML file for frameworks. The HTML for the frameworks is based on whatever example file is provided with the download of that framework. Some adjustment will likely be needed for new projects, such as file/folder locations and whatnot.
 
 To install this extension:
 In Brackets, under "Help" select "Show Extensions Folder". Place extension folder with files inside the "user" folder.
+
 Older versions of Brackets this choice might be under "Debug" or might not exist at all.
+
+Or just use the Extension Manager within Brackets.
 
 
 Usage

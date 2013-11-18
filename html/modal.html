@@ -7,18 +7,28 @@
     </div>
     <p style="display: none; color: red; font-weight: bold; padding: 10px;" id="templates_error">There is no file open. PLease open a file before running HTML-Templates.</p>
     <div class="modal-body">
-        <h2>Choose a doctype...</h2>
+        <h2>Choose a template...</h2>
         <p style="display: none; color: red; font-weight: bold;" id="templates_warning">File has content, this action will overwrite that content.</p>
-         
-        <p class="dialog-message">
-            <a id="templates_HTML5" data-template="html5" href="#">HTML5</a><br />
-            <a id="templates_HTML5BP-4-3-0" data-template="html5bp-4-3-0" href="#">HTML5 Boilerplate (v. 4.3.0)</a><br />
-            <a id="templates_HTML4loose" data-template="html4loose" href="#">HTML4 Transitional</a><br />
-            <a id="templates_HTML4strict" data-template="html4strict" href="#">HTML4 Strict</a><br />
-            <a id="templates_XHTML1loose" data-template="xhtml1loose" href="#">XHTML 1 Transitional</a><br />
-            <a id="templates_XHTML1strict" data-template="xhtml1strict" href="#">XHTML 1 Strict</a><br />
-            <a id="templates_XHTML11" data-template="xhtml11" href="#">XHTML 1.1</a>
-        </p>
+        
+        <p><strong>Standard doctypes</strong></p>        
+        <select id='standard'>
+            <option value=''>Choose...</option>
+            <option value='html5'>HTML5</option>
+            <option value='html4loose'>HTML4 Transitional</option>
+            <option value='html4strict'>HTML4 Strict</option>
+            <option value='xhtml1loose'>XHTML 1 Transitional</option>
+            <option value='xhtml1strict'>XHTML 1 Strict</option>
+            <option value='xhtml11'>XHTML 1.1</option>
+        </select>
+        
+        <p><strong>Framework templates</strong></p>
+        <p>These templates are based on HTML provided with the framework, some adjustments will be necessary.</p>
+        <select id='frameworks'>
+            <option value=''>Choose...</option>
+            <option value='html5bp-4-3-0'>HTML5 Boilerplate 4.3.0</option>
+            <option value='foundation-4-3-2'>Foundation 4.3.2</option>
+            <option value='skeleton-1-2'>Skeleton 1.2</option>
+        </select>
     </div>
     <div class="modal-footer">
         <a id="templates_modalBtn" href="#" class="dialog-button btn primary">Close</a>

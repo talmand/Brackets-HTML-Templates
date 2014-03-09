@@ -28,12 +28,35 @@ define(function (require, exports, module) {
     'use strict';
 
     var CommandManager = brackets.getModule("command/CommandManager"),
+        DocumentManager         = brackets.getModule("document/DocumentManager"),
         EditorManager  = brackets.getModule("editor/EditorManager"),
-        Menus          = brackets.getModule("command/Menus");
+        KeyBindingManager = brackets.getModule("command/KeyBindingManager"),
+        Menus          = brackets.getModule("command/Menus"),
+        nextUntitledFileIndex = 1;
     
     // load up modal content, don't forget text! at beginning of file name
     var modal = require("text!html/modal.html");
    
+    
+	/**    
+	 * Creates a new File in memory
+     *  
+	 * @param {int} fileIndex Description    
+	 * @param {string} extension (incl. dot: ".html") 
+     *
+     * Notice: There seems to be unfinished work in Brackets. As soon you add an extension to DocumentManager.createUntitledDocument()
+     * an error from the ScopeManager is written to the console: "Error resolving /_brackets_<randomNo>/"
+     * If you pass an empty string as extension (like [File->New] does in sourcecode of Brackets) no errors accures.
+     * I chose to ignore the error and go for the extension because it's just working fine. Hoping it will be resolved in next Brackets sprint...
+	 */
+	function handleNewFile(fileIndex, extension) {
+        
+        var doc = DocumentManager.createUntitledDocument(fileIndex, extension);
+            DocumentManager.setCurrentDocument(doc);
+        return new $.Deferred().resolve(doc).promise();
+        
+    }
+    
     function action() {
         
         // add our modal window to the body
@@ -61,16 +84,6 @@ define(function (require, exports, module) {
         });
     
         var editor = EditorManager.getCurrentFullEditor();
-        if (editor) {
-            if (editor._codeMirror.getValue().length > 0) {
-                // file has content, show warning
-                $("#templates_warning").show();
-            }
-        } else {
-            // no file is open, show error
-            $("#templates_error").show();
-            $(".modal-body").hide();
-        }
         
         // result of clicking a template choice
         // selector is very specific to avoid cross-extension contamination, just in case
@@ -116,19 +129,34 @@ define(function (require, exports, module) {
                     template = "Something went wrong somewhere. Not horribly wrong, just wrong.";
             }
             
-            // insert html into file, this will overwrite whatever content happens to be there already
-            EditorManager.getCurrentFullEditor()._codeMirror.setValue(template);
+            var extension = ".html"
             
-            // automatically close the modal window
-            $("#templates_modalBtn").click();
+            
+            //create an empty document and open it
+            handleNewFile(nextUntitledFileIndex, extension)
+				.done( function(doc) { 
+					nextUntitledFileIndex++;
+					// insert html into new file
+					EditorManager.getCurrentFullEditor()._codeMirror.setValue(template);
+					 // automatically close the modal window
+					$("#templates_modalBtn").click();
+			})
+           
+            
         };
 
     }
     
-    // Register the commands and insert in the File menu
-    CommandManager.register("HTML Templates...", "templates", action);
-    var menu = Menus.getMenu(Menus.AppMenuBar.EDIT_MENU);
-    menu.addMenuDivider();
-    menu.addMenuItem("templates");
+    // Register the commands and insert it in the File menu
+    var COMMAND_ID = "template_ext",   // package-style naming to avoid collisions
+        menu = Menus.getMenu(Menus.AppMenuBar.FILE_MENU);
+    
+    CommandManager.register("New From...", COMMAND_ID, action);
+    KeyBindingManager.addBinding(COMMAND_ID, "Ctrl-Shift-N");
+    
+    
+    menu.addMenuItem(COMMAND_ID, null, Menus.FIRST);
+    menu.addMenuDivider(Menus.AFTER, COMMAND_ID);
+    
     
 });

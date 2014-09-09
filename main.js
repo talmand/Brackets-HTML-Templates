@@ -21,7 +21,7 @@
 */
 
 /*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, maxerr: 50, browser: true */
-/*global define, require, brackets, $, Mustache */
+/*global define, require, brackets, $, Mustache, chosenTemplate */
 
 require.config({
     paths: {
@@ -63,7 +63,7 @@ define(function (require, exports, module) {
         // selector is very specific to avoid cross-extension contamination, just in case
         $('#templates_modal select#standard, #templates_modal select#frameworks').on('change', function () {
             // send the chosen template
-            chosenTemplate($(this).val());            
+            chosenTemplate($(this).val());
         });
         
         var chosenTemplate = function (choice) {
@@ -71,36 +71,36 @@ define(function (require, exports, module) {
             var template;
             switch (choice) {
                 // standard
-                case 'html5':
-                    template = require('text!html/html5.html');
-                    break;
-                case 'html4loose':
-                    template = require('text!html/html4loose.html');
-                    break;
-                case 'html4strict':
-                    template = require('text!html/html4strict.html');
-                    break;
-                case 'xhtml1loose':
-                    template = require('text!html/xhtml1loose.html');
-                    break;
-                case 'xhtml1strict':
-                    template = require('text!html/xhtml1strict.html');
-                    break;
-                case 'xhtml11':
-                    template = require('text!html/xhtml11.html');
-                    break;
-                // frameworks
-                case 'html5bp-4-3-0':
-                    template = require('text!html/html5bp-4-3-0.html');
-                    break;
-                case 'foundation-4-3-2':
-                    template = require('text!html/foundation-4-3-2.html');
-                    break;
-                case 'skeleton-1-2':
-                    template = require('text!html/skeleton-1-2.html');
-                    break;
-                default:
-                    template = 'Something went wrong somewhere. Not horribly wrong, just wrong.';
+            case 'html5':
+                template = require('text!html/html5.html');
+                break;
+            case 'html4loose':
+                template = require('text!html/html4loose.html');
+                break;
+            case 'html4strict':
+                template = require('text!html/html4strict.html');
+                break;
+            case 'xhtml1loose':
+                template = require('text!html/xhtml1loose.html');
+                break;
+            case 'xhtml1strict':
+                template = require('text!html/xhtml1strict.html');
+                break;
+            case 'xhtml11':
+                template = require('text!html/xhtml11.html');
+                break;
+            // frameworks
+            case 'html5bp-4-3-0':
+                template = require('text!html/html5bp-4-3-0.html');
+                break;
+            case 'foundation-4-3-2':
+                template = require('text!html/foundation-4-3-2.html');
+                break;
+            case 'skeleton-1-2':
+                template = require('text!html/skeleton-1-2.html');
+                break;
+            default:
+                template = 'Something went wrong somewhere. Not horribly wrong, just wrong.';
             }
             
             // insert html into file, this will overwrite whatever content happens to be there already

@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2012 Travis Almand. All rights reserved.
+* Copyright (c) 2014 Travis Almand. All rights reserved.
 *
 * Permission is hereby granted, free of charge, to any person obtaining a
 * copy of this software and associated documentation files (the "Software"),
@@ -21,55 +21,62 @@
 */
 
 /*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, maxerr: 50, browser: true */
-/*global define, brackets, $ */
+/*global define, require, brackets, $, Mustache */
+
+require.config({
+    paths: {
+        "text" : "lib/text",
+        "i18n" : "lib/i18n"
+    },
+    locale: brackets.getLocale()
+});
 
 define(function (require, exports, module) {
     
     'use strict';
 
-    var CommandManager = brackets.getModule("command/CommandManager"),
-        EditorManager  = brackets.getModule("editor/EditorManager"),
-        Menus          = brackets.getModule("command/Menus");
+    var CommandManager  = brackets.getModule('command/CommandManager'),
+        EditorManager   = brackets.getModule('editor/EditorManager'),
+        Menus           = brackets.getModule('command/Menus'),
+        Dialogs         = brackets.getModule('widgets/Dialogs');
     
     // load up modal content, don't forget text! at beginning of file name
-    var modal = require("text!html/modal.html");
-   
+    var modal = require('text!html/modal.html');
+    var Strings = require('strings');
     function action() {
         
-        // add our modal window to the body
-        $("body").append(modal);
+        Dialogs.showModalDialogUsingTemplate(Mustache.render(modal, Strings));
         
         // show new elements
-        $('#templates_modalBackdrop').css('opacity', 0.5);
-        $('#templates_modal').css({
-            'position': 'absolute',
-            'top': 'calc(50% - ' + ($('#templates_modal').height() / 2) + 'px)',
-            'left': 'calc(50% - ' + ($('#templates_modal').width() / 2) + 'px)'
-        });
+//        $('#templates_modal').css({
+//            'position': 'absolute',
+//            'top': 'calc(50% - ' + ($('#templates_modal').height() / 2) + 'px)',
+//            'left': 'calc(50% - ' + ($('#templates_modal').width() / 2) + 'px)'
+//        });
         
         // pressing esc key closes modal and backdrop
         $(document).keyup(function (e) {
             if (e.keyCode === 27) {
-                $("#templates_modal, #templates_modalBackdrop").remove();
+                //$('#templates_modal, #templates_modalBackdrop').remove();
             }
         });
         
         // clicking close button, x header button, or backdrop removes modal from body
-        $("#templates_modalBtn, #templates_modalBackdrop, #templates_modal a.close").on("click", function (e) {
+        $('#templates_modalBtn, #templates_modalBackdrop, #templates_modal a.close').on('click', function (e) {
             e.preventDefault();
-            $("#templates_modal, #templates_modalBackdrop").remove();
+            //$('#templates_modal, #templates_modalBackdrop').remove();
         });
     
         var editor = EditorManager.getCurrentFullEditor();
         if (editor) {
             if (editor._codeMirror.getValue().length > 0) {
                 // file has content, show warning
-                $("#templates_warning").show();
+                $('#templates_warning').show();
             }
         } else {
             // no file is open, show error
-            $("#templates_error").show();
-            $(".modal-body").hide();
+            $('#templates_error').show();
+            //$('.modal-body').hide();
         }
         
         // result of clicking a template choice
@@ -84,51 +91,51 @@ define(function (require, exports, module) {
             var template;
             switch (choice) {
                 // standard
-                case "html5":
-                    template = require("text!html/html5.html");
+                case 'html5':
+                    template = require('text!html/html5.html');
                     break;
-                case "html4loose":
-                    template = require("text!html/html4loose.html");
+                case 'html4loose':
+                    template = require('text!html/html4loose.html');
                     break;
-                case "html4strict":
-                    template = require("text!html/html4strict.html");
+                case 'html4strict':
+                    template = require('text!html/html4strict.html');
                     break;
-                case "xhtml1loose":
-                    template = require("text!html/xhtml1loose.html");
+                case 'xhtml1loose':
+                    template = require('text!html/xhtml1loose.html');
                     break;
-                case "xhtml1strict":
-                    template = require("text!html/xhtml1strict.html");
+                case 'xhtml1strict':
+                    template = require('text!html/xhtml1strict.html');
                     break;
-                case "xhtml11":
-                    template = require("text!html/xhtml11.html");
+                case 'xhtml11':
+                    template = require('text!html/xhtml11.html');
                     break;
                 // frameworks
-                case "html5bp-4-3-0":
-                    template = require("text!html/html5bp-4-3-0.html");
+                case 'html5bp-4-3-0':
+                    template = require('text!html/html5bp-4-3-0.html');
                     break;
-                case "foundation-4-3-2":
-                    template = require("text!html/foundation-4-3-2.html");
+                case 'foundation-4-3-2':
+                    template = require('text!html/foundation-4-3-2.html');
                     break;
-                case "skeleton-1-2":
-                    template = require("text!html/skeleton-1-2.html");
+                case 'skeleton-1-2':
+                    template = require('text!html/skeleton-1-2.html');
                     break;
                 default:
-                    template = "Something went wrong somewhere. Not horribly wrong, just wrong.";
+                    template = 'Something went wrong somewhere. Not horribly wrong, just wrong.';
             }
             
             // insert html into file, this will overwrite whatever content happens to be there already
             EditorManager.getCurrentFullEditor()._codeMirror.setValue(template);
             
             // automatically close the modal window
-            $("#templates_modalBtn").click();
+            $('#templates_modalBtn').click();
         };
 
     }
     
     // Register the commands and insert in the File menu
-    CommandManager.register("HTML Templates...", "templates", action);
+    CommandManager.register(Strings.MENU_COMMAND, 'templates', action);
     var menu = Menus.getMenu(Menus.AppMenuBar.EDIT_MENU);
     menu.addMenuDivider();
-    menu.addMenuItem("templates");
+    menu.addMenuItem('templates');
     
 });

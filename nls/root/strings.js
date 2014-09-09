@@ -26,7 +26,7 @@
 define({
     'MENU_COMMAND': 'HTML Templates...',
     'TITLE_H1': 'HTML Templates',
-    'NO_FILE_OPEN_ERROR': 'There is no file open. PLease open a file before running HTML-Templates.',
+    'NO_FILE_OPEN_ERROR': 'There is no file open. Please open a file before running HTML-Templates.',
     'TITLE_H4': 'Choose a template...',
     'CONTENT_ERROR': 'File has content, this action will overwrite that content.',
     'SECTION_DOCTYPE': 'Standard doctypes',

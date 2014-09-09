@@ -23,11 +23,15 @@
 /*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, maxerr: 50, browser: true */
 /*global define, brackets, $ */
 
-define(function (require, exports, module) {
-    'use strict';
-    
-    module.exports = {
-        root: true,
-        it: true
-    };
+define({
+    'MENU_COMMAND': 'HTML Templates...',
+    'TITLE_H1': 'HTML Templates',
+    'NO_FILE_OPEN_ERROR': 'Non vi è alcun file aperto. Si prega di aprire un file prima di eseguire HTML Templates.',
+    'TITLE_H4': 'Scegli un modello...',
+    'CONTENT_ERROR': 'File ha un contenuto, questa azione sovrascrive il contenuto.',
+    'SECTION_DOCTYPE': 'Standard DOCTYPE',
+    'SELECT_LABEL': 'Scegli...',
+    'SECTION_TEMPLATES': 'Modelli Framework',
+    'SECTION_TEMPLATES_DESC': 'Questi modelli sono basati con HTML fornito con il framework, alcuni adeguamenti saranno necessari.',
+    'CANCEL_BUTTON': 'Cancella'
 });

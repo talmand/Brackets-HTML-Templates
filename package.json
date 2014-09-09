@@ -5,6 +5,10 @@
     "homepage": "https://github.com/talmand/Brackets-HTML-Templates",
     "version": "1.2.0",
     "author": "Travis Almand",
+    "i18n": [
+        "en", 
+        "it" 
+    ],
     "engines": {
         "brackets": ">=0.20.0"
     }

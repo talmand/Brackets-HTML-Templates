@@ -43,29 +43,10 @@ define(function (require, exports, module) {
     // load up modal content, don't forget text! at beginning of file name
     var modal = require('text!html/modal.html');
     var Strings = require('strings');
+    
     function action() {
         
         Dialogs.showModalDialogUsingTemplate(Mustache.render(modal, Strings));
-        
-        // show new elements
-//        $('#templates_modal').css({
-//            'position': 'absolute',
-//            'top': 'calc(50% - ' + ($('#templates_modal').height() / 2) + 'px)',
-//            'left': 'calc(50% - ' + ($('#templates_modal').width() / 2) + 'px)'
-//        });
-        
-        // pressing esc key closes modal and backdrop
-        $(document).keyup(function (e) {
-            if (e.keyCode === 27) {
-                //$('#templates_modal, #templates_modalBackdrop').remove();
-            }
-        });
-        
-        // clicking close button, x header button, or backdrop removes modal from body
-        $('#templates_modalBtn, #templates_modalBackdrop, #templates_modal a.close').on('click', function (e) {
-            e.preventDefault();
-            //$('#templates_modal, #templates_modalBackdrop').remove();
-        });
     
         var editor = EditorManager.getCurrentFullEditor();
         if (editor) {
@@ -76,7 +57,6 @@ define(function (require, exports, module) {
         } else {
             // no file is open, show error
             $('#templates_error').show();
-            //$('.modal-body').hide();
         }
         
         // result of clicking a template choice

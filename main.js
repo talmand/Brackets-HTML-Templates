@@ -99,6 +99,9 @@ define(function (require, exports, module) {
             case 'skeleton-1-2':
                 template = require('text!html/skeleton-1-2.html');
                 break;
+            case 'bootstrap-3-2-0':
+                template = require('text!html/bootstrap-3-2-0.html');
+                break;
             default:
                 template = 'Something went wrong somewhere. Not horribly wrong, just wrong.';
             }

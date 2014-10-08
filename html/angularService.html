@@ -4,8 +4,6 @@
     var servicesModule = angular.module('app.services');
 
     servicesModule.directive('service', service);
-    
-    service.$inject = ['$scope'];
 
     function service() {
         var service = {

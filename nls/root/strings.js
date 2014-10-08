@@ -30,6 +30,7 @@ define({
     'TITLE_H4': 'Choose a template...',
     'CONTENT_ERROR': 'File has content, this action will overwrite that content.',
     'SECTION_DOCTYPE': 'Standard doctypes',
+    'SECTION_JAVASCRIPT': 'Javascript',
     'SELECT_LABEL': 'Choose...',
     'SECTION_TEMPLATES': 'Framework templates',
     'SECTION_TEMPLATES_DESC': 'These templates are based on HTML provided with the framework, some adjustments will be necessary.',

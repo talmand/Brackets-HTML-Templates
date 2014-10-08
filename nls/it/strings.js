@@ -30,6 +30,7 @@ define({
     'TITLE_H4': 'Scegli un modello...',
     'CONTENT_ERROR': 'File ha un contenuto, questa azione sovrascrive il contenuto.',
     'SECTION_DOCTYPE': 'Standard DOCTYPE',
+    'SECTION_JAVASCRIPT': 'Javascript',
     'SELECT_LABEL': 'Scegli...',
     'SECTION_TEMPLATES': 'Modelli Framework',
     'SECTION_TEMPLATES_DESC': 'Questi modelli sono basati con HTML fornito con il framework, alcuni adeguamenti saranno necessari.',

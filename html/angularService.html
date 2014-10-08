@@ -1,0 +1,21 @@
+(function () {
+    'use strict';
+    
+    var servicesModule = angular.module('app.services');
+
+    servicesModule.directive('service', service);
+    
+    service.$inject = ['$scope'];
+
+    function service() {
+        var service = {
+            method: method
+        };
+
+        return service;
+
+        function method() {
+
+        }
+    }
+}());

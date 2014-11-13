@@ -93,14 +93,14 @@ define(function (require, exports, module) {
             case 'html5bp-4-3-0':
                 template = require('text!html/html5bp-4-3-0.html');
                 break;
-            case 'foundation-4-3-2':
-                template = require('text!html/foundation-4-3-2.html');
+            case 'foundation-5-4-7':
+                template = require('text!html/foundation-5-4-7.html');
                 break;
             case 'skeleton-1-2':
                 template = require('text!html/skeleton-1-2.html');
                 break;
-            case 'bootstrap-3-2-0':
-                template = require('text!html/bootstrap-3-2-0.html');
+            case 'bootstrap-3-3-0':
+                template = require('text!html/bootstrap-3-3-0.html');
                 break;
             default:
                 template = 'Something went wrong somewhere. Not horribly wrong, just wrong.';

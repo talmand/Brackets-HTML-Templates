@@ -7,7 +7,8 @@
     "author": "Travis Almand",
     "i18n": [
         "en", 
-        "it" 
+        "it",
+        "es"
     ],
     "engines": {
         "brackets": ">=0.20.0"

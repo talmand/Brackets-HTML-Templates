@@ -23,12 +23,15 @@
 /*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, maxerr: 50, browser: true */
 /*global define, brackets, $ */
 
-define(function (require, exports, module) {
-    'use strict';
-    
-    module.exports = {
-        root: true,
-        it: true,
-        es: true
-    };
+define({
+    'MENU_COMMAND': 'Plantillas HTML...',
+    'TITLE_H1': 'Plantillas HTML',
+    'NO_FILE_OPEN_ERROR': 'No hay ningún archivo abierto. Por favor, abra un archivo antes de ejecutar Plantillas HTML.',
+    'TITLE_H4': 'Elija una plantilla...',
+    'CONTENT_ERROR': 'El archivo ya tiene contenido, esta acción sobreescribirá el contenido existente.',
+    'SECTION_DOCTYPE': 'Doctypes estándar',
+    'SELECT_LABEL': 'Elegir...',
+    'SECTION_TEMPLATES': 'Plantillas de Frameworks',
+    'SECTION_TEMPLATES_DESC': 'Estas plantillas están basadas en HTML proveniente del Framework, algunos ajustes serán necesarios.',
+    'CANCEL_BUTTON': 'Cancelar'
 });

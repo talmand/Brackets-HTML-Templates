@@ -99,8 +99,8 @@ define(function (require, exports, module) {
             case 'skeleton-1-2':
                 template = require('text!html/skeleton-1-2.html');
                 break;
-            case 'bootstrap-3-3-0':
-                template = require('text!html/bootstrap-3-3-0.html');
+            case 'bootstrap-3-3-2':
+                template = require('text!html/bootstrap-3-3-2.html');
                 break;
             case 'materialize-0-95-1':
                 template = require('text!html/materialize-0-95-1.html');

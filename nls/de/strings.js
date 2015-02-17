@@ -23,13 +23,15 @@
 /*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, maxerr: 50, browser: true */
 /*global define, brackets, $ */
 
-define(function (require, exports, module) {
-    'use strict';
-    
-    module.exports = {
-        root: true,
-        it: true,
-        de: true,
-        es: true
-    };
+define({
+    'MENU_COMMAND': 'HTML Templates...',
+    'TITLE_H1': 'HTML Templates',
+    'NO_FILE_OPEN_ERROR': 'Keine Datei geöffnet. Bitte eine Datei öffnen, um HTML-Templates einzufügen.',
+    'TITLE_H4': 'Template auswählen...',
+    'CONTENT_ERROR': 'Diese Aktion wird den Inhalt der aktuellen Datei überschreiben.',
+    'SECTION_DOCTYPE': 'Standard-HTML-Vorlagen',
+    'SELECT_LABEL': 'Auswählen...',
+    'SECTION_TEMPLATES': 'Framework-Vorlagen',
+    'SECTION_TEMPLATES_DESC': 'Diese Templates basieren auf dem HTML-Code der jeweiligen Frameworks, einige Änderungen werden nötig sein.',
+    'CANCEL_BUTTON': 'Abbrechen'
 });

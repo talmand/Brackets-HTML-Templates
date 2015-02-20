@@ -3,7 +3,7 @@
     "title": "HTML Templates",
     "description": "Inserts HTML from a pre-made list of templates.",
     "homepage": "https://github.com/talmand/Brackets-HTML-Templates",
-    "version": "1.3.1",
+    "version": "1.3.2",
     "author": "Travis Almand",
     "i18n": [
         "en", 

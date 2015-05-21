@@ -23,14 +23,15 @@
 /*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, maxerr: 50, browser: true */
 /*global define, brackets, $ */
 
-define(function (require, exports, module) {
-    'use strict';
-    
-    module.exports = {
-        "root": true,
-        "it": true,
-        "de": true,
-        "es": true,
-        "zh-cn": true
-    };
+define({
+    'MENU_COMMAND': '插入HTML模板...',
+    'TITLE_H1': 'HTML模板',
+    'NO_FILE_OPEN_ERROR': '当前没有打开的文档。请在运行该命令前打开一个文档。',
+    'TITLE_H4': '选择一个模板...',
+    'CONTENT_ERROR': '当前文件已有内容，执行该操作将会覆盖原有内容。',
+    'SECTION_DOCTYPE': '标准doctype',
+    'SELECT_LABEL': '选择...',
+    'SECTION_TEMPLATES': '框架模板',
+    'SECTION_TEMPLATES_DESC': '这些模板是基于随此插件提供的HTML文件，在使用时可能需要进行必要的修改。',
+    'CANCEL_BUTTON': '取消'
 });

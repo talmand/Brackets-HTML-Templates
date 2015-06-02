@@ -9,9 +9,16 @@
         "en", 
         "it",
         "es",
-        "de"
+        "de",
+        "zh-cn"
     ],
     "engines": {
         "brackets": ">=1.0.0"
+    },
+    "package-i18n": {
+        "zh-cn": {
+            "description": "从已有的模板列表中插入HTML",
+            "title": "HTML模板"
+        }
     }
 }

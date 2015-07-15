@@ -90,8 +90,8 @@ define(function (require, exports, module) {
                 template = require('text!html/xhtml11.html');
                 break;
             // frameworks
-            case 'html5bp-5-1-0':
-                template = require('text!html/html5bp-5-1-0.html');
+            case 'html5bp-5-2-0':
+                template = require('text!html/html5bp-5-2-0.html');
                 break;
             case 'foundation-5-5-1':
                 template = require('text!html/foundation-5-5-1.html');

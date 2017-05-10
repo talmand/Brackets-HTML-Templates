@@ -1,0 +1,13 @@
+(function () {
+    'use strict';
+    
+    var controllerModule = angular.module('app.controllers');
+
+    controllerModule.controller('controller', controller);
+    
+    controller.$inject = ['$scope'];
+
+    function controller($scope) {
+        var vm = this;
+    }
+}());

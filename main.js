@@ -61,7 +61,7 @@ define(function (require, exports, module) {
         
         // result of clicking a template choice
         // selector is very specific to avoid cross-extension contamination, just in case
-        $('#templates_modal select#standard, #templates_modal select#frameworks').on('change', function () {
+        $('#templates_modal select#standard, #templates_modal select#javascript, #templates_modal select#frameworks').on('change', function () {
             // send the chosen template
             chosenTemplate($(this).val());
         });
@@ -88,6 +88,22 @@ define(function (require, exports, module) {
                 break;
             case 'xhtml11':
                 template = require('text!html/xhtml11.html');
+                break;
+            // javascript
+            case 'javascriptIIFE':
+                template = require('text!html/javascriptIIFE.html');
+                break;
+            case 'angularAppModule':
+                template = require('text!html/angularAppModule.html');
+                break;
+            case 'angularService':
+                template = require('text!html/angularService.html');
+                break;
+            case 'angularController':
+                template = require('text!html/angularController.html');
+                break;
+            case 'angularDirective':
+                template = require('text!html/angularDirective.html');
                 break;
             // frameworks
             case 'html5bp-5-2-0':

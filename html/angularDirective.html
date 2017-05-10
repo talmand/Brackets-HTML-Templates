@@ -1,0 +1,30 @@
+(function () {
+    'use strict';
+    
+    var directivesModule = angular.module('app.directives');
+
+    directivesModule.directive('directive', directive);
+
+    function directive() {
+        var directive = {
+            link: link,
+            controller: controller,
+            controllerAs: 'vm',
+            templateUrl: '/template/is/located/here.html',
+            restrict: 'EA',
+            scope: { }
+        };
+
+        return directive;
+
+        function link(scope, element, attrs, ctrl) {
+        
+        }
+
+        controller.$inject = ['$scope'];
+
+        function controller($scope) {
+            var vm = this;
+        }
+    }
+}());
